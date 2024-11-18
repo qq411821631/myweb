@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>简单展示页面</title>
+<style>
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #0066cc;
+    font-size: 3em;
+    margin-top: 50px;
+}
+
+p {
+    font-size: 1.5em;
+    color: #666;
+}
+
+#myCanvas {
+    display: block;
+    margin: 20px auto;
+    background-color: white;
+    border: 1px solid #ccc;
+}
+</style>
+</head>
+<body>
+
+<h1>欢迎来到我的小站</h1>
+<p>这里是一些美丽的文字，希望你喜欢！</p>
+
+<canvas id="myCanvas" width="400" height="400"></canvas>
+
+<script>
+window.onload = function() {
+    var canvas = document.getElementById('myCanvas');
+    if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');
+
+        // 绘制一个圆形
+        ctx.beginPath();
+        ctx.arc(200, 200, 150, 0, Math.PI * 2, false);
+        ctx.fillStyle = '#ff6600';
+        ctx.fill();
+
+        // 绘制一条曲线
+        ctx.beginPath();
+        ctx.moveTo(100, 100);
+        ctx.bezierCurveTo(200, 50, 300, 50, 400, 100);
+        ctx.strokeStyle = '#00cc66';
+        ctx.lineWidth = 5;
+        ctx.stroke();
+
+        // 添加一些文字
+        ctx.font = 'bold 30px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#ffffff';
+        ctx.fillText('叶紫东到此一游!', 200, 250);
+    }
+};
+</script>
+
+</body>
+</html>
